@@ -1,0 +1,3 @@
+return {
+    "Burntsushi/ripgrep"
+}
