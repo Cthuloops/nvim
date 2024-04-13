@@ -1,37 +1,42 @@
---lua.init Line numbers + relative
-vim.opt.nu = true
-vim.opt.relativenumber = true
+-- Make space into leader
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- tabs
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+-- Bind Explore command to space+pv (brings you back to netrw)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore"})
 
--- indenting
-vim.opt.smartindent = true
+-- move your visual select around
+vim.keymap.set("v", "J", ":m '>+0<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-3<CR>gv=gv")
 
--- no wrap
-vim.opt.wrap = false
+-- Appends line beneath to current line + a space without moving the cursor
+vim.keymap.set("n", "J", "mzJ'z")
+
+-- allows half page jumping while keeping cursor in the middle
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- keep cursor in the middle while searching
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- deleting to void register
+vim.keymap.set("n", "<leader>d", "\"_d")
+vim.keymap.set("v", "<leader>d", "\"_d")
+-- delete vis selection to void register while pasting
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
+-- asbjornHaland keymap + register(systemclipboard) yanks to clip
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+Y")
+
+-- saves changes when in vertical edit mode (not that i know how to get to that)
+-- vim.keymap.set("i", "<C-c>", "<Esc>")
 
 
+-- search and replace for current word in the whole document
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
--- search highlight and incremental search
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
--- colors
-vim.opt.termguicolors = true
-
--- keep 8 rows when scrolling
-vim.opt.scrolloff = 8
-
--- idk
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
-
-vim.opt.colorcolumn = "80"
-
-
+-- undotree
+vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
