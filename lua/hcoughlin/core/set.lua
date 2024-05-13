@@ -6,11 +6,11 @@ vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore"})
 
 -- move your visual select around
-vim.keymap.set("v", "J", ":m '>+0<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-3<CR>gv=gv")
+-- vim.keymap.set("v", "J", ":m '>+0<CR>gv=gv")
+-- vim.keymap.set("v", "K", ":m '<-3<CR>gv=gv")
 
 -- Appends line beneath to current line + a space without moving the cursor
-vim.keymap.set("n", "J", "mzJ'z")
+-- vim.keymap.set("n", "J", "mzJ'z")
 
 -- allows half page jumping while keeping cursor in the middle
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -31,12 +31,14 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
--- saves changes when in vertical edit mode (not that i know how to get to that)
--- vim.keymap.set("i", "<C-c>", "<Esc>")
+-- saves changes when in vertical edit mode (not that i know how to get to that) (i actually figured it out lol <C-v>)
+vim.keymap.set("i", "<C-c>", "<Esc>")
 
-
--- search and replace for current word in the whole document
+-- search and replace interactive for current word in the whole document
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 -- undotree
 vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
+
+-- Nerd font
+vim.g.have_nerd_font = true
