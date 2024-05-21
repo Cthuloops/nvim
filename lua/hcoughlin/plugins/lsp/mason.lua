@@ -38,7 +38,7 @@ return {
         mason_tool_installer.setup({
             ensure_installed = {
                 "prettier", -- prettier formatter
-                "ruff",
+--                "ruff",
                 "luacheck",
                 "cpplint",
             },
