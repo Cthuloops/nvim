@@ -29,6 +29,7 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "pyright",
+                "clangd",
             },
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed
@@ -37,6 +38,9 @@ return {
         mason_tool_installer.setup({
             ensure_installed = {
                 "prettier", -- prettier formatter
+                "ruff",
+                "luacheck",
+                "cpplint",
             },
         })
     end,

@@ -7,7 +7,7 @@ return {
         configs.setup({
             ignore_install = {},
             auto_install = true,
-            ensure_installed = { "c", "bash", "lua", "vim", "vimdoc", "query", "java", "python" },
+            ensure_installed = { "c", "cpp", "bash", "lua", "vim", "vimdoc", "query", "java", "python" },
             sync_install = false,
             highlight = { enable = true },
             indent = { enable = true },
