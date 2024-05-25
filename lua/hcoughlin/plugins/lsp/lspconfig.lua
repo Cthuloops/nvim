@@ -39,7 +39,7 @@ return {
                 keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
                 opts.desc = "Show LSP type definitions"
-                keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+                keymap.set("n", "gtd", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
                 opts.desc = "See available code actions"
                 keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
@@ -64,6 +64,28 @@ return {
 
                 opts.desc = "Restart LSP"
                 keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+                opts.desc = "something about signature help"
+                vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+
+                opts.desc = "add workspace folder?"
+                vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+
+                opts.desc = "remove workspace folder?"
+                vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+
+                opts.desc = "list workspace folder?"
+                vim.keymap.set('n', '<space>wl', function()
+                    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                end, opts)
+
+                opts.desc = "code actions"
+                vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+
+                opts.desc = "Formatting"
+                vim.keymap.set('n', '<space>fo', function()
+                    vim.lsp.buf.format { async = true }
+                end, opts)
 
             end,
         })

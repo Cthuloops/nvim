@@ -42,3 +42,5 @@ vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
 
 -- Nerd font
 vim.g.have_nerd_font = true
+
+--vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { desc = "opens split w/ locations for diagnostic messages" })
